@@ -2960,17 +2960,17 @@ the specific language governing permissions and limitations under the Apache Lic
             var ids = [], filtered = [], self = this;
 
             // filter out duplicates
-            $(data).each(function () {
-                if (indexOf(self.id(this), ids) < 0) {
-                    ids.push(self.id(this));
-                    filtered.push(this);
+            data.forEach(function (elem) {
+                if (indexOf(self.id(elem), ids) < 0) {
+                    ids.push(self.id(elem));
+                    filtered.push(elem);
                 }
             });
             data = filtered;
 
             this.selection.find(".select2-search-choice").remove();
-            $(data).each(function () {
-                self.addSelectedChoice(this);
+            data.forEach(function (elem) {
+                self.addSelectedChoice(elem);
             });
             self.postprocessResults();
         },
